@@ -125,11 +125,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "off": MessageLookupByLibrary.simpleMessage("خصم"),
     "offers": MessageLookupByLibrary.simpleMessage("العروض"),
     "onboarding_1_description": MessageLookupByLibrary.simpleMessage(
-      "اكتشف عالماً من الذوق الرفيع. نحن\nننتقي مجموعات حصرية مصممة خصيصاً\nلأسلوب حياتك الراقي.",
+      "اختر الستايلات التي تعبر عنك. سنقوم\nبتنسيق إطلالات خصيصاً لك.",
     ),
-    "onboarding_1_title": MessageLookupByLibrary.simpleMessage(
-      "الرقي المصمم بعناية",
-    ),
+    "onboarding_1_title": MessageLookupByLibrary.simpleMessage("ما هو مزاجك؟"),
     "onboarding_2_description": MessageLookupByLibrary.simpleMessage(
       "رحلتك الحصرية تبدأ الآن\nخطوة واحدة إلى عالم من الذوق\nالرفيع المصمم خصيصاً لك..",
     ),

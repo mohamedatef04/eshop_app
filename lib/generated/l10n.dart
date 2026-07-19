@@ -54,20 +54,20 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Curated Elegance`
+  /// `What's your vibe?`
   String get onboarding_1_title {
     return Intl.message(
-      'Curated Elegance',
+      'What\'s your vibe?',
       name: 'onboarding_1_title',
       desc: '',
       args: [],
     );
   }
 
-  /// `Discover a world of refined taste. We\nhandpick exclusive collections tailored to\nyour discerning lifestyle.`
+  /// `Select the styles that resonate with you most.\nWe'll curate outfits just for you.`
   String get onboarding_1_description {
     return Intl.message(
-      'Discover a world of refined taste. We\nhandpick exclusive collections tailored to\nyour discerning lifestyle.',
+      'Select the styles that resonate with you most.\nWe\'ll curate outfits just for you.',
       name: 'onboarding_1_description',
       desc: '',
       args: [],
