@@ -1,7 +1,6 @@
 import 'package:eshop_app/assets.dart';
 import 'package:eshop_app/features/on_boarding/screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -22,9 +21,14 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Image.asset(Assets.images.logo_png, width: 200.w, height: 200.h),
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(Assets.images.splash_png),
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }

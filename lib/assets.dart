@@ -44,4 +44,5 @@ final class _Images {
   final String onboarding_office_png = 'assets/images/onboarding_office.png';
   final String onboarding_weekends_png =
       'assets/images/onboarding_weekends.png';
+  final String splash_png = 'assets/images/splash.png';
 }
