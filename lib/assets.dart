@@ -37,6 +37,7 @@ final class _Images {
 
   final String logo_png = 'assets/images/logo.png';
   final String onboarding_1_png = 'assets/images/onboarding_1.png';
+  final String onboarding_2_png = 'assets/images/onboarding_2.png';
   final String onboarding_events_png = 'assets/images/onboarding_events.png';
   final String onboarding_formal_png = 'assets/images/onboarding_formal.png';
   final String onboarding_hybrid_png = 'assets/images/onboarding_hybrid.png';

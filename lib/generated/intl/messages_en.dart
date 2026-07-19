@@ -123,10 +123,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "off": MessageLookupByLibrary.simpleMessage("OFF"),
     "offers": MessageLookupByLibrary.simpleMessage("Offers"),
     "onboarding_1_description": MessageLookupByLibrary.simpleMessage(
-      "Discover a world of refined taste. We\nhandpick exclusive collections tailored to\nyour discerning lifestyle.",
+      "Select the styles that resonate with you most.\nWe\'ll curate outfits just for you.",
     ),
     "onboarding_1_title": MessageLookupByLibrary.simpleMessage(
-      "Curated Elegance",
+      "What\'s your vibe?",
     ),
     "onboarding_2_description": MessageLookupByLibrary.simpleMessage(
       "Your exclusive journey begins now\nStep into a world of curated\nelegance designed perfectly for you..",
