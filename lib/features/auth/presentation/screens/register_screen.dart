@@ -1,6 +1,5 @@
 import 'package:eshop_app/core/theme/app_text_styles.dart';
 import 'package:eshop_app/core/widgets/custom_elevated_button.dart';
-import 'package:eshop_app/features/auth/presentation/screens/register_screen.dart';
 import 'package:eshop_app/features/auth/presentation/widgets/custom_text_field.dart';
 import 'package:eshop_app/features/auth/presentation/widgets/login/or_login_with_widget.dart';
 import 'package:eshop_app/features/auth/presentation/widgets/login/social_login_button.dart';
@@ -9,9 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:go_router/go_router.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
-  static const String route = '/login';
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
+  static const String route = '/register';
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +23,9 @@ class LoginScreen extends StatelessWidget {
             children: [
               const _Header(),
               SizedBox(height: 40.h),
-              const _LoginForm(),
+              const _RegisterForm(),
               SizedBox(height: 20.h),
-              const _RegisterPrompt(),
+              const _LoginPrompt(),
             ],
           ),
         ),
@@ -44,12 +43,12 @@ class _Header extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          S.of(context).welcome_back,
+          S.of(context).register,
           style: AppTextStyles.bold24(context),
         ),
         SizedBox(height: 8.h),
         Text(
-          S.of(context).login_to_your_account,
+          S.of(context).create_exclusive_account,
           style: AppTextStyles.regular16(context).copyWith(
             color: Theme.of(
               context,
@@ -61,14 +60,32 @@ class _Header extends StatelessWidget {
   }
 }
 
-class _LoginForm extends StatelessWidget {
-  const _LoginForm();
+class _RegisterForm extends StatelessWidget {
+  const _RegisterForm();
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        Row(
+          children: [
+            Expanded(
+              child: CustomTextField(
+                label: S.of(context).first_name,
+                hint: S.of(context).first_name_hint,
+              ),
+            ),
+            SizedBox(width: 16.w),
+            Expanded(
+              child: CustomTextField(
+                label: S.of(context).last_name,
+                hint: S.of(context).last_name_hint,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 20.h),
         CustomTextField(
           label: S.of(context).email,
           hint: S.of(context).email_hint,
@@ -80,26 +97,15 @@ class _LoginForm extends StatelessWidget {
           hint: S.of(context).password_hint,
           obscureText: true,
         ),
-        SizedBox(height: 12.h),
-        Align(
-          alignment: AlignmentDirectional.centerEnd,
-          child: TextButton(
-            onPressed: () {},
-            child: Text(
-              S.of(context).forgot_password,
-              style: AppTextStyles.medium14(context),
-            ),
-          ),
-        ),
         SizedBox(height: 32.h),
         Center(
           child: CustomElevatedButton(
-            text: S.of(context).login,
+            text: S.of(context).create_account,
             onPressed: () {},
           ),
         ),
         SizedBox(height: 32.h),
-        OrLoginWithWidget(text: S.of(context).or_login_with_email),
+        OrLoginWithWidget(text: S.of(context).or_register_with_email),
         SizedBox(height: 32.h),
         Center(
           child: SocialLoginButton(
@@ -117,8 +123,8 @@ class _LoginForm extends StatelessWidget {
   }
 }
 
-class _RegisterPrompt extends StatelessWidget {
-  const _RegisterPrompt();
+class _LoginPrompt extends StatelessWidget {
+  const _LoginPrompt();
 
   @override
   Widget build(BuildContext context) {
@@ -126,15 +132,15 @@ class _RegisterPrompt extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          S.of(context).dont_have_account,
+          S.of(context).already_have_account,
           style: AppTextStyles.regular14(context),
         ),
         TextButton(
           onPressed: () {
-            GoRouter.of(context).push(RegisterScreen.route);
+            GoRouter.of(context).pop();
           },
           child: Text(
-            S.of(context).register,
+            S.of(context).login,
             style: AppTextStyles.bold14(context).copyWith(),
           ),
         ),
