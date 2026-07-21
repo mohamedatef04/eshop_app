@@ -1,5 +1,6 @@
 import 'package:eshop_app/core/theme/app_text_styles.dart';
 import 'package:eshop_app/core/widgets/custom_elevated_button.dart';
+import 'package:eshop_app/features/auth/presentation/screens/forgot_password_screen.dart';
 import 'package:eshop_app/features/auth/presentation/screens/register_screen.dart';
 import 'package:eshop_app/features/auth/presentation/widgets/custom_text_field.dart';
 import 'package:eshop_app/features/auth/presentation/widgets/login/or_login_with_widget.dart';
@@ -84,7 +85,9 @@ class _LoginForm extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional.centerEnd,
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push(ForgotPasswordScreen.route);
+            },
             child: Text(
               S.of(context).forgot_password,
               style: AppTextStyles.medium14(context),
