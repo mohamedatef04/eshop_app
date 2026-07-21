@@ -96,6 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalid_email": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال بريد إلكتروني صحيح",
     ),
+    "invalid_name": MessageLookupByLibrary.simpleMessage("الاسم غير صالح"),
     "invalid_phone": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال رقم هاتف صحيح",
     ),

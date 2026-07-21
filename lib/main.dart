@@ -1,11 +1,16 @@
 import 'package:eshop_app/core/routes/app_router.dart';
+import 'package:eshop_app/core/services/get_it_.dart';
 import 'package:eshop_app/core/theme/app_theme.dart';
 import 'package:eshop_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
+  setupLocator();
   runApp(const MyApp());
 }
 

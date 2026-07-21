@@ -1,3 +1,8 @@
+import 'package:eshop_app/core/services/get_it_.dart';
+import 'package:eshop_app/features/auth/data/repos/auth_repo.dart';
+import 'package:eshop_app/features/auth/presentation/cubits/register/register_cubit.dart';
+import 'package:eshop_app/features/auth/presentation/cubits/resend_otp/resend_otp_cubit.dart';
+import 'package:eshop_app/features/auth/presentation/cubits/verify_email/verify_email_cubit.dart';
 import 'package:eshop_app/features/auth/presentation/screens/forgot_password_otp_screen.dart';
 import 'package:eshop_app/features/auth/presentation/screens/forgot_password_screen.dart';
 import 'package:eshop_app/features/auth/presentation/screens/login_screen.dart';
@@ -7,6 +12,7 @@ import 'package:eshop_app/features/auth/presentation/screens/reset_password_scre
 import 'package:eshop_app/features/auth/presentation/screens/verify_email_after_registeration_screen.dart';
 import 'package:eshop_app/features/on_boarding/screens/onboarding_screen.dart';
 import 'package:eshop_app/features/splash/screens/splash_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(
@@ -25,12 +31,26 @@ final GoRouter router = GoRouter(
         ),
         GoRoute(
           path: RegisterScreen.route,
-          builder: (context, state) => const RegisterScreen(),
+          builder: (context, state) => BlocProvider(
+            create: (context) => RegisterCubit(getIt<AuthRepo>()),
+            child: const RegisterScreen(),
+          ),
         ),
         GoRoute(
           path: VerifyEmailAfterRegisterationScreen.route,
-          builder: (context, state) =>
-              const VerifyEmailAfterRegisterationScreen(),
+          builder: (context, state) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => VerifyEmailCubit(getIt<AuthRepo>()),
+              ),
+              BlocProvider(
+                create: (context) => ResendOtpCubit(getIt<AuthRepo>()),
+              ),
+            ],
+            child: VerifyEmailAfterRegisterationScreen(
+              email: state.extra as String,
+            ),
+          ),
         ),
         GoRoute(
           path: ForgotPasswordScreen.route,

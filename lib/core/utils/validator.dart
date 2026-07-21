@@ -10,6 +10,18 @@ class Validator {
     return null;
   }
 
+  static String? validateName(BuildContext context, String? value) {
+    if (value == null || value.isEmpty) {
+      return S.of(context).field_required;
+    } else if (value.length < 3) {
+      return S.of(context).invalid_name;
+    } else if (value.length > 50) {
+      return S.of(context).invalid_name;
+    }
+
+    return null;
+  }
+
   static String? validateEmail(BuildContext context, String? value) {
     if (value == null || value.isEmpty) {
       return S.of(context).email_required;

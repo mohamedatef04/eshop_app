@@ -3,7 +3,8 @@ import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:flutter/services.dart';
 
 class OtpWidget extends StatefulWidget {
-  const OtpWidget({super.key});
+  const OtpWidget({super.key, required this.onOtpChanged});
+  final ValueChanged<String> onOtpChanged;
 
   @override
   State<OtpWidget> createState() => _OtpWidgetState();
@@ -21,7 +22,9 @@ class _OtpWidgetState extends State<OtpWidget> {
           child: TextFormField(
             textAlign: TextAlign.center,
             keyboardType: TextInputType.number,
-            textInputAction: index == 5 ? TextInputAction.done : TextInputAction.next,
+            textInputAction: index == 5
+                ? TextInputAction.done
+                : TextInputAction.next,
             inputFormatters: [
               FilteringTextInputFormatter.digitsOnly,
               LengthLimitingTextInputFormatter(1),
@@ -37,7 +40,9 @@ class _OtpWidgetState extends State<OtpWidget> {
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.r),
                 borderSide: BorderSide(
-                  color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.5),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.outline.withValues(alpha: 0.5),
                 ),
               ),
               focusedBorder: OutlineInputBorder(
@@ -54,6 +59,7 @@ class _OtpWidgetState extends State<OtpWidget> {
               } else if (value.isEmpty && index > 0) {
                 FocusScope.of(context).previousFocus();
               }
+              widget.onOtpChanged(value);
             },
           ),
         ),

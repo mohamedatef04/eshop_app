@@ -2,7 +2,7 @@ import 'package:eshop_app/core/theme/app_text_styles.dart';
 import 'package:eshop_app/core/widgets/custom_elevated_button.dart';
 import 'package:eshop_app/features/auth/presentation/screens/reset_password_screen.dart';
 import 'package:eshop_app/features/auth/presentation/widgets/didnot_recieve_otp_widget.dart';
-import 'package:eshop_app/features/auth/presentation/widgets/otp_widget.dart';
+import 'package:eshop_app/features/auth/presentation/widgets/otp_input_field.dart';
 import 'package:eshop_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
@@ -39,7 +39,7 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 40.h),
-              const OtpWidget(),
+              const OtpInputField(),
               SizedBox(height: 60.h),
               SizedBox(
                 width: double.infinity,
@@ -51,7 +51,7 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 24.h),
-              const DidNotReceiveOtpWidget(),
+              const DidNotReceiveOtpWidget(email: ""),
             ],
           ),
         ),

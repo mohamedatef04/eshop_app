@@ -107,5 +107,6 @@
     "arabic": "العربية",
     "english": "English",
     "appearance": "Appearance",
-    "settings": "Settings"
+    "settings": "Settings",
+    "invalid_name": "Invalid name"
 }
