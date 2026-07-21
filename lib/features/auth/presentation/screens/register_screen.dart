@@ -1,5 +1,6 @@
 import 'package:eshop_app/core/theme/app_text_styles.dart';
 import 'package:eshop_app/core/widgets/custom_elevated_button.dart';
+import 'package:eshop_app/features/auth/presentation/screens/verify_email_after_registeration_screen.dart';
 import 'package:eshop_app/features/auth/presentation/widgets/custom_text_field.dart';
 import 'package:eshop_app/features/auth/presentation/widgets/login/or_login_with_widget.dart';
 import 'package:eshop_app/features/auth/presentation/widgets/login/social_login_button.dart';
@@ -101,7 +102,11 @@ class _RegisterForm extends StatelessWidget {
         Center(
           child: CustomElevatedButton(
             text: S.of(context).create_account,
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(
+                context,
+              ).push(VerifyEmailAfterRegisterationScreen.route);
+            },
           ),
         ),
         SizedBox(height: 32.h),
