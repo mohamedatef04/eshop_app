@@ -9,7 +9,7 @@ import 'package:go_router/go_router.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({super.key});
-  static const String route = 'resetPassword';
+  static const String route = '/resetPassword';
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,9 @@ class ResetPasswordScreen extends StatelessWidget {
               Text(
                 S.of(context).new_password_desc,
                 style: AppTextStyles.regular16(context).copyWith(
-                  color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withValues(alpha: 0.7),
                 ),
               ),
               SizedBox(height: 40.h),
@@ -43,7 +45,9 @@ class ResetPasswordScreen extends StatelessWidget {
               Text(
                 S.of(context).must_be_at_least_8_chars,
                 style: AppTextStyles.regular12(context).copyWith(
-                  color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withValues(alpha: 0.5),
                 ),
               ),
               SizedBox(height: 20.h),
@@ -58,7 +62,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 child: CustomElevatedButton(
                   text: S.of(context).reset_password,
                   onPressed: () {
-                    GoRouter.of(context).push('/${PasswordResetSuccessScreen.route}');
+                    GoRouter.of(context).push(PasswordResetSuccessScreen.route);
                   },
                 ),
               ),

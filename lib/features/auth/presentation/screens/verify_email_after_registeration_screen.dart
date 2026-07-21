@@ -1,5 +1,6 @@
 import 'package:eshop_app/core/theme/app_text_styles.dart';
 import 'package:eshop_app/core/widgets/custom_elevated_button.dart';
+import 'package:eshop_app/features/auth/presentation/widgets/didnot_recieve_otp_widget.dart';
 import 'package:eshop_app/features/auth/presentation/widgets/otp_widget.dart';
 import 'package:eshop_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -46,22 +47,7 @@ class VerifyEmailAfterRegisterationScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 24.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    S.of(context).didnt_receive_code,
-                    style: AppTextStyles.regular14(context),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      S.of(context).resend,
-                      style: AppTextStyles.bold14(context),
-                    ),
-                  ),
-                ],
-              ),
+              const DidNotReceiveOtpWidget(),
             ],
           ),
         ),

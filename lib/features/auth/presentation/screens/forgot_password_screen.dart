@@ -9,7 +9,7 @@ import 'package:go_router/go_router.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({super.key});
-  static const String route = 'forgotPassword';
+  static const String route = '/forgotPassword';
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,9 @@ class ForgotPasswordScreen extends StatelessWidget {
               Text(
                 S.of(context).forgot_password_desc,
                 style: AppTextStyles.regular16(context).copyWith(
-                  color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withValues(alpha: 0.7),
                 ),
               ),
               SizedBox(height: 40.h),
@@ -45,7 +47,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                 child: CustomElevatedButton(
                   text: S.of(context).send_code,
                   onPressed: () {
-                    GoRouter.of(context).push('/${ForgotPasswordOtpScreen.route}');
+                    GoRouter.of(context).push(ForgotPasswordOtpScreen.route);
                   },
                 ),
               ),

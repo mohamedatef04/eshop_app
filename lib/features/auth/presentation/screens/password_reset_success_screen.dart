@@ -8,7 +8,7 @@ import 'package:go_router/go_router.dart';
 
 class PasswordResetSuccessScreen extends StatelessWidget {
   const PasswordResetSuccessScreen({super.key});
-  static const String route = 'passwordResetSuccess';
+  static const String route = '/passwordResetSuccess';
 
   @override
   Widget build(BuildContext context) {

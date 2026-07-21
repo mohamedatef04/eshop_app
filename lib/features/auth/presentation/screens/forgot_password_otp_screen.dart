@@ -1,6 +1,7 @@
 import 'package:eshop_app/core/theme/app_text_styles.dart';
 import 'package:eshop_app/core/widgets/custom_elevated_button.dart';
 import 'package:eshop_app/features/auth/presentation/screens/reset_password_screen.dart';
+import 'package:eshop_app/features/auth/presentation/widgets/didnot_recieve_otp_widget.dart';
 import 'package:eshop_app/features/auth/presentation/widgets/otp_widget.dart';
 import 'package:eshop_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ import 'package:go_router/go_router.dart';
 
 class ForgotPasswordOtpScreen extends StatelessWidget {
   const ForgotPasswordOtpScreen({super.key});
-  static const String route = 'forgotPasswordOtp';
+  static const String route = '/forgotPasswordOtp';
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,9 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
               Text(
                 S.of(context).forget_password_otp_notice,
                 style: AppTextStyles.regular16(context).copyWith(
-                  color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withValues(alpha: 0.7),
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -43,27 +46,12 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
                 child: CustomElevatedButton(
                   text: S.of(context).verify,
                   onPressed: () {
-                    GoRouter.of(context).push('/${ResetPasswordScreen.route}');
+                    GoRouter.of(context).push(ResetPasswordScreen.route);
                   },
                 ),
               ),
               SizedBox(height: 24.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    S.of(context).didnt_receive_code,
-                    style: AppTextStyles.regular14(context),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      S.of(context).resend,
-                      style: AppTextStyles.bold14(context),
-                    ),
-                  ),
-                ],
-              ),
+              const DidNotReceiveOtpWidget(),
             ],
           ),
         ),
