@@ -1,5 +1,6 @@
 import 'package:eshop_app/core/services/get_it_.dart';
 import 'package:eshop_app/features/auth/data/repos/auth_repo.dart';
+import 'package:eshop_app/features/auth/presentation/cubits/login/login_cubit.dart';
 import 'package:eshop_app/features/auth/presentation/cubits/register/register_cubit.dart';
 import 'package:eshop_app/features/auth/presentation/cubits/resend_otp/resend_otp_cubit.dart';
 import 'package:eshop_app/features/auth/presentation/cubits/verify_email/verify_email_cubit.dart';
@@ -27,7 +28,10 @@ final GoRouter router = GoRouter(
         ),
         GoRoute(
           path: LoginScreen.route,
-          builder: (context, state) => const LoginScreen(),
+          builder: (context, state) => BlocProvider(
+            create: (context) => LoginCubit(getIt<AuthRepo>()),
+            child: const LoginScreen(),
+          ),
         ),
         GoRoute(
           path: RegisterScreen.route,

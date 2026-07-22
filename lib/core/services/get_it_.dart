@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:eshop_app/core/api/api_service.dart';
 import 'package:eshop_app/features/auth/data/data_source/auth_data_source.dart';
 import 'package:eshop_app/features/auth/data/repos/auth_repo.dart';
+import 'package:eshop_app/features/auth/presentation/cubits/login/login_cubit.dart';
 import 'package:eshop_app/features/auth/presentation/cubits/register/register_cubit.dart';
 import 'package:eshop_app/features/auth/presentation/cubits/resend_otp/resend_otp_cubit.dart';
 import 'package:eshop_app/features/auth/presentation/cubits/verify_email/verify_email_cubit.dart';
@@ -21,14 +22,16 @@ void setupLocator() {
   getIt.registerLazySingleton(
     () => RegisterCubit(getIt<AuthRepo>()),
   );
-  // getIt.registerLazySingleton(
-  //   () => LoginCubit(getIt<AuthRepo>()),
-  // );
+
   getIt.registerLazySingleton(
     () => VerifyEmailCubit(getIt<AuthRepo>()),
   );
   getIt.registerLazySingleton(
     () => ResendOtpCubit(getIt<AuthRepo>()),
+  );
+
+  getIt.registerLazySingleton(
+    () => LoginCubit(getIt<AuthRepo>()),
   );
   // getIt.registerLazySingleton(
   //   () => ForgetPassCubit(getIt<AuthRepo>()),
