@@ -80,4 +80,56 @@ class AuthRepo {
       }
     }
   }
+
+  Future<Either<Failures, void>> forgetPassword({
+    required String email,
+  }) async {
+    try {
+      final res = await authDataSource.forgetPassword(email: email);
+      return right(res);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromDioExeption(e));
+      } else {
+        return Left(ServerFailure(errorMessage: e.toString()));
+      }
+    }
+  }
+
+  Future<Either<Failures, void>> validateOtp({
+    required String email,
+    required String otp,
+  }) async {
+    try {
+      final res = await authDataSource.validateOtp(email: email, otp: otp);
+      return right(res);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromDioExeption(e));
+      } else {
+        return Left(ServerFailure(errorMessage: e.toString()));
+      }
+    }
+  }
+
+  Future<Either<Failures, void>> resetPassword({
+    required String email,
+    required String otp,
+    required String newPassword,
+  }) async {
+    try {
+      final res = await authDataSource.resetPassword(
+        email: email,
+        otp: otp,
+        newPassword: newPassword,
+      );
+      return right(res);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromDioExeption(e));
+      } else {
+        return Left(ServerFailure(errorMessage: e.toString()));
+      }
+    }
+  }
 }

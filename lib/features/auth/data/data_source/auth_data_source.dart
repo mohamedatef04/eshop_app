@@ -18,6 +18,13 @@ abstract class AuthDataSource {
     required String email,
     required String password,
   });
+  Future<void> forgetPassword({required String email});
+  Future<void> validateOtp({required String email, required String otp});
+  Future<void> resetPassword({
+    required String email,
+    required String otp,
+    required String newPassword,
+  });
 }
 
 class AuthDataSourceImpl implements AuthDataSource {
@@ -73,5 +80,42 @@ class AuthDataSourceImpl implements AuthDataSource {
     );
     final jsonData = response.data;
     return LoginResponseModel.fromJson(jsonData);
+  }
+
+  @override
+  Future<void> forgetPassword({required String email}) async {
+    await apiService.postRequest(
+      endpoint: Endpoints.forgetPassword,
+      data: {
+        'email': email,
+      },
+    );
+  }
+
+  @override
+  Future<void> validateOtp({required String email, required String otp}) async {
+    await apiService.postRequest(
+      endpoint: Endpoints.verifyOtp,
+      data: {
+        'email': email,
+        'otp': otp,
+      },
+    );
+  }
+
+  @override
+  Future<void> resetPassword({
+    required String email,
+    required String otp,
+    required String newPassword,
+  }) async {
+    await apiService.postRequest(
+      endpoint: Endpoints.resetPassword,
+      data: {
+        'email': email,
+        'otp': otp,
+        'newPassword': newPassword,
+      },
+    );
   }
 }

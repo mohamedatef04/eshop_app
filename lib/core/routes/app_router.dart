@@ -1,8 +1,11 @@
 import 'package:eshop_app/core/services/get_it_.dart';
 import 'package:eshop_app/features/auth/data/repos/auth_repo.dart';
+import 'package:eshop_app/features/auth/presentation/cubits/forget_pass/forget_pass_cubit.dart';
 import 'package:eshop_app/features/auth/presentation/cubits/login/login_cubit.dart';
 import 'package:eshop_app/features/auth/presentation/cubits/register/register_cubit.dart';
 import 'package:eshop_app/features/auth/presentation/cubits/resend_otp/resend_otp_cubit.dart';
+import 'package:eshop_app/features/auth/presentation/cubits/reset_pass/reset_pass_cubit.dart';
+import 'package:eshop_app/features/auth/presentation/cubits/validate_otp/validate_otp_cubit.dart';
 import 'package:eshop_app/features/auth/presentation/cubits/verify_email/verify_email_cubit.dart';
 import 'package:eshop_app/features/auth/presentation/screens/forgot_password_otp_screen.dart';
 import 'package:eshop_app/features/auth/presentation/screens/forgot_password_screen.dart';
@@ -58,15 +61,39 @@ final GoRouter router = GoRouter(
         ),
         GoRoute(
           path: ForgotPasswordScreen.route,
-          builder: (context, state) => const ForgotPasswordScreen(),
+          builder: (context, state) => BlocProvider(
+            create: (context) => ForgetPassCubit(getIt<AuthRepo>()),
+            child: const ForgotPasswordScreen(),
+          ),
         ),
         GoRoute(
           path: ForgotPasswordOtpScreen.route,
-          builder: (context, state) => const ForgotPasswordOtpScreen(),
+          builder: (context, state) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => ValidateOtpCubit(getIt<AuthRepo>()),
+              ),
+              BlocProvider(
+                create: (context) => ResendOtpCubit(getIt<AuthRepo>()),
+              ),
+            ],
+            child: ForgotPasswordOtpScreen(
+              email: state.extra as String,
+            ),
+          ),
         ),
         GoRoute(
           path: ResetPasswordScreen.route,
-          builder: (context, state) => const ResetPasswordScreen(),
+          builder: (context, state) {
+            final args = state.extra as Map<String, String>;
+            return BlocProvider(
+              create: (context) => ResetPassCubit(getIt<AuthRepo>()),
+              child: ResetPasswordScreen(
+                email: args['email']!,
+                otp: args['otp']!,
+              ),
+            );
+          },
         ),
         GoRoute(
           path: PasswordResetSuccessScreen.route,

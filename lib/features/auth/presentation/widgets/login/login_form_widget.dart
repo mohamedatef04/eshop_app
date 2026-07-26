@@ -101,7 +101,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                   message: 'تم تسجيل الدخول بنجاح',
                   title: S.of(context).success,
                   type: ToastificationType.success,
-                  color: AppColors.accent,
+                  color: AppColors.secondary,
                   icon: Icons.check,
                 );
               } else if (state is LoginErrorState) {

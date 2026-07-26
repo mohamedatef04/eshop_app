@@ -63,8 +63,8 @@ class _OtpInputFieldState extends State<OtpInputField> {
       children: List.generate(
         widget.length,
         (index) => SizedBox(
-          width: 60.w,
-          height: 80.h,
+          width: 40.w,
+          height: 72.h,
           child: TextFormField(
             controller: _controllers[index],
             focusNode: _focusNodes[index],

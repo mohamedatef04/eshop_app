@@ -92,8 +92,6 @@ class _VerifyEmailAfterRegisterationScreenState
                       isLoading: state is VerifyEmailLoading,
                       text: S.of(context).verify,
                       onPressed: () {
-                        print('OTP: $otp');
-
                         if (otp != null && otp!.length == 6) {
                           context
                               .read<VerifyEmailCubit>()
