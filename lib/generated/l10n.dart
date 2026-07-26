@@ -903,6 +903,16 @@ class S {
   String get settings {
     return Intl.message('Settings', name: 'settings', desc: '', args: []);
   }
+
+  /// `Invalid name`
+  String get invalid_name {
+    return Intl.message(
+      'Invalid name',
+      name: 'invalid_name',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

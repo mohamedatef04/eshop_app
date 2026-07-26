@@ -94,6 +94,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalid_email": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid email",
     ),
+    "invalid_name": MessageLookupByLibrary.simpleMessage("Invalid name"),
     "invalid_phone": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid phone number",
     ),

@@ -107,5 +107,6 @@
     "arabic": "العربية",
     "english": "English",
     "appearance": "المظهر",
-    "settings": "الإعدادات"
+    "settings": "الإعدادات",
+    "invalid_name": "الاسم غير صالح"
 }
