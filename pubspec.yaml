@@ -47,6 +47,9 @@ dependencies:
   toastification: ^3.2.0
   flutter_dotenv: ^6.0.1
   get_it: ^9.2.1
+  google_nav_bar: ^5.0.7
+  shared_preferences: ^2.5.5
+  flutter_native_splash: ^2.4.7
 
 dev_dependencies:
   flutter_test:

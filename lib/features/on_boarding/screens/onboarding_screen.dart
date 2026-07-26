@@ -1,4 +1,6 @@
 import 'package:eshop_app/assets.dart';
+import 'package:eshop_app/core/services/shared_pref_service.dart';
+import 'package:eshop_app/core/utils/constants.dart';
 import 'package:eshop_app/features/auth/presentation/screens/login_screen.dart';
 import 'package:eshop_app/features/on_boarding/models/onboarding_item_model.dart';
 import 'package:eshop_app/features/on_boarding/widgets/onboarding_item.dart';
@@ -33,7 +35,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       OnboardingItemModel(
         image: Assets.images.onboarding_2_png,
         buttonText: S.of(context).get_started,
-        onPressed: () {
+        onPressed: () async {
+          await SharedPrefrenceService.setBool(
+            AppConstants.onboardingKey,
+            true,
+          );
           GoRouter.of(context).go(LoginScreen.route);
         },
       ),

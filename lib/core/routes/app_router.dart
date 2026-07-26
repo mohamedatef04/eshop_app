@@ -1,4 +1,6 @@
 import 'package:eshop_app/core/services/get_it_.dart';
+import 'package:eshop_app/core/services/shared_pref_service.dart';
+import 'package:eshop_app/core/utils/constants.dart';
 import 'package:eshop_app/features/auth/data/repos/auth_repo.dart';
 import 'package:eshop_app/features/auth/presentation/cubits/forget_pass/forget_pass_cubit.dart';
 import 'package:eshop_app/features/auth/presentation/cubits/login/login_cubit.dart';
@@ -14,21 +16,34 @@ import 'package:eshop_app/features/auth/presentation/screens/password_reset_succ
 import 'package:eshop_app/features/auth/presentation/screens/register_screen.dart';
 import 'package:eshop_app/features/auth/presentation/screens/reset_password_screen.dart';
 import 'package:eshop_app/features/auth/presentation/screens/verify_email_after_registeration_screen.dart';
+import 'package:eshop_app/features/main/root_screen.dart';
 import 'package:eshop_app/features/on_boarding/screens/onboarding_screen.dart';
-import 'package:eshop_app/features/splash/screens/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(
   routes: <RouteBase>[
     GoRoute(
       path: '/',
-      builder: (context, state) => const SplashScreen(),
+      builder: (context, state) => const OnboardingScreen(),
+      redirect: (context, state) async {
+        bool isOnBoardingCompleted = await SharedPrefrenceService.getBool(
+          AppConstants.onboardingKey,
+        );
+        const FlutterSecureStorage storage = FlutterSecureStorage();
+        String? token = await storage.read(key: AppConstants.refreshTokenKey);
+        if (isOnBoardingCompleted) {
+          if (token != null) {
+            return RootScreen.route;
+          } else {
+            return LoginScreen.route;
+          }
+        } else {
+          return OnboardingScreen.route;
+        }
+      },
       routes: [
-        GoRoute(
-          path: OnboardingScreen.route,
-          builder: (context, state) => const OnboardingScreen(),
-        ),
         GoRoute(
           path: LoginScreen.route,
           builder: (context, state) => BlocProvider(
@@ -98,6 +113,10 @@ final GoRouter router = GoRouter(
         GoRoute(
           path: PasswordResetSuccessScreen.route,
           builder: (context, state) => const PasswordResetSuccessScreen(),
+        ),
+        GoRoute(
+          path: RootScreen.route,
+          builder: (context, state) => const RootScreen(),
         ),
       ],
     ),

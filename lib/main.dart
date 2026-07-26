@@ -1,5 +1,6 @@
 import 'package:eshop_app/core/routes/app_router.dart';
 import 'package:eshop_app/core/services/get_it_.dart';
+import 'package:eshop_app/core/services/shared_pref_service.dart';
 import 'package:eshop_app/core/theme/app_theme.dart';
 import 'package:eshop_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
   setupLocator();
+  await SharedPrefrenceService.initSharedPref();
   runApp(const MyApp());
 }
 
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: S.delegate.supportedLocales,
-          locale: const Locale('ar'),
+          locale: const Locale('en'),
           debugShowCheckedModeBanner: false,
           routerConfig: router,
           darkTheme: AppTheme.darkTheme,

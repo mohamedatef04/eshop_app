@@ -9,6 +9,7 @@ import 'package:eshop_app/features/auth/presentation/screens/forgot_password_scr
 import 'package:eshop_app/features/auth/presentation/widgets/custom_text_field.dart';
 import 'package:eshop_app/features/auth/presentation/widgets/login/or_login_with_widget.dart';
 import 'package:eshop_app/features/auth/presentation/widgets/social_login_button.dart';
+import 'package:eshop_app/features/main/root_screen.dart';
 import 'package:eshop_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -96,14 +97,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                   key: AppConstants.refreshTokenKey,
                   value: state.loginResponseModel.refreshToken,
                 );
-                showToastificationBar(
-                  context: context,
-                  message: 'تم تسجيل الدخول بنجاح',
-                  title: S.of(context).success,
-                  type: ToastificationType.success,
-                  color: AppColors.secondary,
-                  icon: Icons.check,
-                );
+                GoRouter.of(context).go(RootScreen.route);
               } else if (state is LoginErrorState) {
                 showToastificationBar(
                   context: context,

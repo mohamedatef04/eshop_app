@@ -1,0 +1,15 @@
+flutter_native_splash:
+  # The color of the splash screen background
+  color: "#F08E42"
+  background_image: "assets/images/splash.png"
+  
+  # The path to your splash screen logo/image
+  image: "assets/images/splash.png"
+  
+  # Set to true to generate the splash screen for Android
+  android: true
+  
+  # Specifically support the new Android 12+ Splash Screen API
+  android_12:
+    background_image: "assets/images/native_splash_screen_background.png"
+    image: "assets/images/native_splash_screen.png"
