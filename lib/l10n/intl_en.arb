@@ -108,5 +108,8 @@
     "english": "English",
     "appearance": "Appearance",
     "settings": "Settings",
-    "invalid_name": "Invalid name"
+    "invalid_name": "Invalid name",
+    "categories": "Categories",
+    "products": "Products",
+    "see_all": "See All"
 }

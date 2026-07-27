@@ -16,6 +16,7 @@ import 'package:eshop_app/features/auth/presentation/screens/password_reset_succ
 import 'package:eshop_app/features/auth/presentation/screens/register_screen.dart';
 import 'package:eshop_app/features/auth/presentation/screens/reset_password_screen.dart';
 import 'package:eshop_app/features/auth/presentation/screens/verify_email_after_registeration_screen.dart';
+import 'package:eshop_app/features/home/presentation/screens/home_screen.dart';
 import 'package:eshop_app/features/main/root_screen.dart';
 import 'package:eshop_app/features/on_boarding/screens/onboarding_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -117,6 +118,10 @@ final GoRouter router = GoRouter(
         GoRoute(
           path: RootScreen.route,
           builder: (context, state) => const RootScreen(),
+        ),
+        GoRoute(
+          path: HomeScreen.route,
+          builder: (context, state) => const HomeScreen(),
         ),
       ],
     ),

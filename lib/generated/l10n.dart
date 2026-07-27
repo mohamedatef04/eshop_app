@@ -913,6 +913,21 @@ class S {
       args: [],
     );
   }
+
+  /// `Categories`
+  String get categories {
+    return Intl.message('Categories', name: 'categories', desc: '', args: []);
+  }
+
+  /// `Products`
+  String get products {
+    return Intl.message('Products', name: 'products', desc: '', args: []);
+  }
+
+  /// `See All`
+  String get see_all {
+    return Intl.message('See All', name: 'see_all', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -10,7 +10,7 @@ import 'package:go_router/go_router.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
-  static const String route = '/onboarding';
+  static const String route = '/';
 
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();

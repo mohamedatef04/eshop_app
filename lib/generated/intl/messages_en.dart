@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "back_to_login": MessageLookupByLibrary.simpleMessage("Back to login"),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+    "categories": MessageLookupByLibrary.simpleMessage("Categories"),
     "category": MessageLookupByLibrary.simpleMessage("Category"),
     "color": MessageLookupByLibrary.simpleMessage("Color"),
     "confirm_password": MessageLookupByLibrary.simpleMessage(
@@ -193,6 +194,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "price": MessageLookupByLibrary.simpleMessage("Price"),
     "product_code": MessageLookupByLibrary.simpleMessage("Product Code"),
     "product_details": MessageLookupByLibrary.simpleMessage("Product Details"),
+    "products": MessageLookupByLibrary.simpleMessage("Products"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "rating": MessageLookupByLibrary.simpleMessage("Rating"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
@@ -202,6 +204,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "search_for_items": MessageLookupByLibrary.simpleMessage(
       "Search for items...",
     ),
+    "see_all": MessageLookupByLibrary.simpleMessage("See All"),
     "send_code": MessageLookupByLibrary.simpleMessage("Send Code"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "share": MessageLookupByLibrary.simpleMessage("Share"),

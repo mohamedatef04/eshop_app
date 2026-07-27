@@ -21,9 +21,9 @@ class AppTheme {
         error: AppColors.error,
         surface: AppColors.surface,
         onPrimary: AppColors.textOnPrimary,
-        onSecondary: AppColors.textOnPrimary,
+        onSecondary: AppColors.black,
         onError: AppColors.textOnPrimary,
-        onSurface: AppColors.textPrimary,
+        onSurface: AppColors.black,
       ),
 
       // AppBar Theme
@@ -106,7 +106,7 @@ class AppTheme {
         error: AppColors.error,
         surface: AppColors.backgroundDark,
         onPrimary: AppColors.textOnPrimary,
-        onSecondary: AppColors.textOnPrimary,
+        onSecondary: AppColors.white,
         onError: AppColors.textOnPrimary,
         onSurface: AppColors.textLight,
       ),

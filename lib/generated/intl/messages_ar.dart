@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "العودة لتسجيل الدخول",
     ),
     "cart": MessageLookupByLibrary.simpleMessage("السلة"),
+    "categories": MessageLookupByLibrary.simpleMessage("الفئات"),
     "category": MessageLookupByLibrary.simpleMessage("الفئة"),
     "color": MessageLookupByLibrary.simpleMessage("اللون"),
     "confirm_password": MessageLookupByLibrary.simpleMessage(
@@ -187,6 +188,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "price": MessageLookupByLibrary.simpleMessage("السعر"),
     "product_code": MessageLookupByLibrary.simpleMessage("رمز المنتج"),
     "product_details": MessageLookupByLibrary.simpleMessage("تفاصيل المنتج"),
+    "products": MessageLookupByLibrary.simpleMessage("المنتجات"),
     "profile": MessageLookupByLibrary.simpleMessage("حسابي"),
     "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
     "register": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
@@ -198,6 +200,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "search_for_items": MessageLookupByLibrary.simpleMessage(
       "ابحث عن منتجات...",
     ),
+    "see_all": MessageLookupByLibrary.simpleMessage("عرض الكل"),
     "send_code": MessageLookupByLibrary.simpleMessage("إرسال الرمز"),
     "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "share": MessageLookupByLibrary.simpleMessage("مشاركة"),

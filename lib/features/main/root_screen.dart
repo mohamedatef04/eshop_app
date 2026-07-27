@@ -1,4 +1,5 @@
 import 'package:eshop_app/core/widgets/custom_bottom_nav_bar.dart';
+import 'package:eshop_app/features/home/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class RootScreen extends StatefulWidget {
@@ -10,10 +11,14 @@ class RootScreen extends StatefulWidget {
 }
 
 class _RootScreenState extends State<RootScreen> {
+  final List<Widget> screens = [
+    const HomeScreen(),
+  ];
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      bottomNavigationBar: CustomBottomNavBar(),
+    return Scaffold(
+      body: screens[0],
+      bottomNavigationBar: const CustomBottomNavBar(),
     );
   }
 }
