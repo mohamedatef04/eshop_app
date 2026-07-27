@@ -1,6 +1,6 @@
 import 'package:eshop_app/core/theme/colors.dart';
 import 'package:flutter/material.dart';
-import '../../../../../generated/l10n.dart';
+import '../../../../../../generated/l10n.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});

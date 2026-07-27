@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../widgets/categories_section.dart';
-import '../widgets/home_header.dart';
-import '../widgets/offers_section.dart';
-import '../widgets/products_section.dart';
-import '../widgets/search_and_filter.dart';
+import '../widgets/home_widgets/categories_section.dart';
+import '../widgets/home_widgets/home_header.dart';
+import '../widgets/home_widgets/offers_section.dart';
+import '../widgets/home_widgets/products_section.dart';
+import '../widgets/home_widgets/search_and_filter.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

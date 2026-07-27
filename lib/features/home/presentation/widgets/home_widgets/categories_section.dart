@@ -2,7 +2,7 @@ import 'package:eshop_app/core/theme/app_text_styles.dart';
 import 'package:eshop_app/core/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'header_section.dart';
-import '../../../../../generated/l10n.dart';
+import '../../../../../../generated/l10n.dart';
 
 class CategoriesSection extends StatelessWidget {
   const CategoriesSection({super.key});
