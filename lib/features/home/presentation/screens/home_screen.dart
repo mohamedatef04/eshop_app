@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/home_widgets/categories_section.dart';
+import '../widgets/home_widgets/custom_drawer.dart';
 import '../widgets/home_widgets/home_header.dart';
 import '../widgets/home_widgets/offers_section.dart';
 import '../widgets/home_widgets/products_section.dart';
@@ -13,6 +14,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      drawer: CustomDrawer(),
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
