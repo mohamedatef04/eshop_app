@@ -199,7 +199,7 @@ abstract class AppTextStyles {
 
   static TextStyle medium14(BuildContext context) => TextStyle(
     fontSize: _getFontSize(context, 14),
-    color: AppColors.accent,
+    color: Theme.of(context).colorScheme.onSecondary,
     fontFamily: _fontFamily(context),
     fontWeight: FontWeight.w500,
   );

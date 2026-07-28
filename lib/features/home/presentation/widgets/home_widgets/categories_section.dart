@@ -1,6 +1,10 @@
-import 'package:eshop_app/core/theme/app_text_styles.dart';
-import 'package:eshop_app/core/theme/colors.dart';
+import 'package:eshop_app/features/home/data/models/category_model.dart';
+import 'package:eshop_app/features/home/presentation/cubits/categories_cubit/categories_cubit.dart';
+import 'package:eshop_app/features/home/presentation/widgets/home_widgets/category_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 import 'header_section.dart';
 import '../../../../../../generated/l10n.dart';
 
@@ -16,48 +20,43 @@ class CategoriesSection extends StatelessWidget {
           title: S.of(context).categories,
           onSeeAll: () {},
         ),
-        SizedBox(
-          height: 100,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            itemCount: 6, // Dummy count
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.only(right: 16.0),
-                child: Column(
-                  children: [
-                    Container(
-                      width: 65,
-                      height: 65,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: AppColors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withValues(alpha: 0.05),
-                            blurRadius: 5,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
-                        image: const DecorationImage(
-                          image: NetworkImage(
-                            'https://via.placeholder.com/65x65',
-                          ), // Placeholder image
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      S.of(context).category,
-                      style: AppTextStyles.medium14(context),
-                    ),
-                  ],
+        BlocBuilder<CategoriesCubit, CategoriesState>(
+          builder: (context, state) {
+            if (state is CategoriesSuccess) {
+              return SizedBox(
+                height: 80.h,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  itemCount: state.categories.length,
+                  itemBuilder: (context, index) {
+                    return CategoryItem(categoryModel: state.categories[index]);
+                  },
                 ),
               );
-            },
-          ),
+            } else if (state is CategoriesFailure) {
+              return Center(
+                child: Text(state.errMessage),
+              );
+            } else {
+              return SizedBox(
+                height: 80.h,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  itemCount: 6, // Dummy count
+                  itemBuilder: (context, index) {
+                    return Skeletonizer(
+                      enabled: true,
+                      child: CategoryItem(
+                        categoryModel: CategoryModel.placeHolder(),
+                      ),
+                    );
+                  },
+                ),
+              );
+            }
+          },
         ),
       ],
     );

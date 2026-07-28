@@ -1,15 +1,18 @@
 import 'package:eshop_app/core/theme/app_text_styles.dart';
 import 'package:eshop_app/core/theme/colors.dart';
+import 'package:eshop_app/features/home/data/models/product_model.dart';
 import 'package:eshop_app/features/home/presentation/screens/product_details_screen.dart';
-import 'package:eshop_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem({super.key});
+  const ProductItem({super.key, required this.productModel});
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
+    bool isAr = Localizations.localeOf(context).languageCode == 'ar';
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).push(ProductDetailsScreen.route);
@@ -34,13 +37,13 @@ class ProductItem extends StatelessWidget {
               child: Stack(
                 children: [
                   Container(
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.vertical(
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.vertical(
                         top: Radius.circular(16),
                       ),
                       image: DecorationImage(
-                        image: NetworkImage(
-                          'https://via.placeholder.com/150x150',
+                        image: CachedNetworkImageProvider(
+                          productModel.image ?? '',
                         ), // Placeholder image
                         fit: BoxFit.cover,
                       ),
@@ -74,7 +77,9 @@ class ProductItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    S.of(context).item,
+                    isAr
+                        ? productModel.arName ?? ''
+                        : productModel.enName ?? '',
                     style: AppTextStyles.bold16(context),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
@@ -83,7 +88,10 @@ class ProductItem extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('\$199.99', style: AppTextStyles.bold16(context)),
+                      Text(
+                        "\$${productModel.price.toString()}",
+                        style: AppTextStyles.bold16(context),
+                      ),
                       Container(
                         padding: const EdgeInsets.all(4),
                         decoration: BoxDecoration(
