@@ -56,7 +56,7 @@ class ProductModel extends Equatable {
     stock: json['stock'] ?? 0,
     discountPercentage: json['discountPercentage'] ?? 0,
     rating: json['rating'] ?? 0.0,
-    reviewCount: json['reviewCount'] ?? 0,
+    reviewCount: json['reviewsCount'] ?? 0,
   );
   factory ProductModel.placeHolder() {
     return const ProductModel(

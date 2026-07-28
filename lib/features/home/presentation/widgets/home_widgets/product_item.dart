@@ -15,7 +15,9 @@ class ProductItem extends StatelessWidget {
     bool isAr = Localizations.localeOf(context).languageCode == 'ar';
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(ProductDetailsScreen.route);
+        GoRouter.of(
+          context,
+        ).push(ProductDetailsScreen.route, extra: productModel);
       },
       child: Container(
         decoration: BoxDecoration(

@@ -16,6 +16,7 @@ import 'package:eshop_app/features/auth/presentation/screens/password_reset_succ
 import 'package:eshop_app/features/auth/presentation/screens/register_screen.dart';
 import 'package:eshop_app/features/auth/presentation/screens/reset_password_screen.dart';
 import 'package:eshop_app/features/auth/presentation/screens/verify_email_after_registeration_screen.dart';
+import 'package:eshop_app/features/home/data/models/product_model.dart';
 import 'package:eshop_app/features/home/presentation/screens/home_screen.dart';
 import 'package:eshop_app/features/home/presentation/screens/product_details_screen.dart';
 import 'package:eshop_app/features/main/root_screen.dart';
@@ -35,7 +36,7 @@ final GoRouter router = GoRouter(
         );
         const FlutterSecureStorage storage = FlutterSecureStorage();
         String? token = await storage.read(key: AppConstants.refreshTokenKey);
-        
+
         if (state.uri.path == '/') {
           if (isOnBoardingCompleted) {
             if (token != null) {
@@ -47,12 +48,15 @@ final GoRouter router = GoRouter(
             return OnboardingScreen.route;
           }
         }
-        
+
         // If logged in and trying to go to login or onboarding, redirect to root
-        if (token != null && (state.uri.path == LoginScreen.route || state.uri.path == OnboardingScreen.route || state.uri.path == RegisterScreen.route)) {
+        if (token != null &&
+            (state.uri.path == LoginScreen.route ||
+                state.uri.path == OnboardingScreen.route ||
+                state.uri.path == RegisterScreen.route)) {
           return RootScreen.route;
         }
-        
+
         // Allow all other routes (like /product_details) to proceed normally
         return null;
       },
@@ -137,7 +141,9 @@ final GoRouter router = GoRouter(
         ),
         GoRoute(
           path: ProductDetailsScreen.route,
-          builder: (context, state) => const ProductDetailsScreen(),
+          builder: (context, state) => ProductDetailsScreen(
+            productModel: state.extra as ProductModel,
+          ),
         ),
       ],
     ),

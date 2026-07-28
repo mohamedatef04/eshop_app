@@ -1,7 +1,10 @@
+import 'package:eshop_app/features/home/data/models/product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 class ProductImageSection extends StatelessWidget {
-  const ProductImageSection({super.key});
+  const ProductImageSection({super.key, required this.productModel});
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,9 @@ class ProductImageSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CircleAvatar(
-                backgroundColor: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.05),
+                backgroundColor: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.05),
                 child: IconButton(
                   icon: const Icon(Icons.arrow_back_ios_new, size: 20),
                   onPressed: () {
@@ -30,7 +35,9 @@ class ProductImageSection extends StatelessWidget {
                 ),
               ),
               CircleAvatar(
-                backgroundColor: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.05),
+                backgroundColor: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.05),
                 child: IconButton(
                   icon: const Icon(Icons.favorite_border, size: 20),
                   onPressed: () {},
@@ -41,20 +48,20 @@ class ProductImageSection extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 320,
+          height: 250.h,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 16),
             itemCount: 3,
             itemBuilder: (context, index) {
               return Container(
-                width: 260,
+                width: 220.w,
                 margin: const EdgeInsets.only(right: 16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
-                  image: const DecorationImage(
+                  image: DecorationImage(
                     image: NetworkImage(
-                      'https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=1000',
+                      productModel.image ?? '',
                     ),
                     fit: BoxFit.cover,
                   ),
@@ -67,4 +74,3 @@ class ProductImageSection extends StatelessWidget {
     );
   }
 }
-

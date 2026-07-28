@@ -191,6 +191,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "products": MessageLookupByLibrary.simpleMessage("المنتجات"),
     "profile": MessageLookupByLibrary.simpleMessage("حسابي"),
     "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
+    "ratings": MessageLookupByLibrary.simpleMessage("التقييمات"),
     "register": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "resend": MessageLookupByLibrary.simpleMessage("إعادة إرسال"),
     "reset_password": MessageLookupByLibrary.simpleMessage(
@@ -204,6 +205,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "send_code": MessageLookupByLibrary.simpleMessage("إرسال الرمز"),
     "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "share": MessageLookupByLibrary.simpleMessage("مشاركة"),
+    "shippingAndReturns": MessageLookupByLibrary.simpleMessage(
+      "الشحن والاسترجاع",
+    ),
+    "shippingPolicy": MessageLookupByLibrary.simpleMessage(
+      "شحن عادي مجاني وإرجاع مجاني خلال 60 يومًا",
+    ),
     "special_offer": MessageLookupByLibrary.simpleMessage("تخفيضات الصيف!"),
     "special_offer_desc": MessageLookupByLibrary.simpleMessage(
       "احصل على خصم يصل إلى 50%\nعلى جميع العناصر.",

@@ -197,6 +197,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "products": MessageLookupByLibrary.simpleMessage("Products"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "rating": MessageLookupByLibrary.simpleMessage("Rating"),
+    "ratings": MessageLookupByLibrary.simpleMessage("Ratings"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "resend": MessageLookupByLibrary.simpleMessage("Resend"),
     "reset_password": MessageLookupByLibrary.simpleMessage("Reset Password"),
@@ -208,6 +209,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "send_code": MessageLookupByLibrary.simpleMessage("Send Code"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "share": MessageLookupByLibrary.simpleMessage("Share"),
+    "shippingAndReturns": MessageLookupByLibrary.simpleMessage(
+      "Shipping & Returns",
+    ),
+    "shippingPolicy": MessageLookupByLibrary.simpleMessage(
+      "Free standard shipping and free 60-day returns",
+    ),
     "special_offer": MessageLookupByLibrary.simpleMessage("Summer Sale!"),
     "special_offer_desc": MessageLookupByLibrary.simpleMessage(
       "Get up to 50% off\non all items.",

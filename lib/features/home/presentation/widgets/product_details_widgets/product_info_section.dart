@@ -1,75 +1,95 @@
+import 'package:eshop_app/core/theme/app_text_styles.dart';
+import 'package:eshop_app/features/home/data/models/product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import '../../../../../../generated/l10n.dart';
 import 'product_selector.dart';
 import 'quantity_selector.dart';
-import 'review_item.dart';
 
 class ProductInfoSection extends StatelessWidget {
-  const ProductInfoSection({super.key});
+  ProductInfoSection({super.key, required this.productModel});
+  final ProductModel productModel;
+
+  final Map<String, Color> colors = {
+    'Red': Colors.red,
+    'Blue': Colors.blue,
+    'Green': Colors.green,
+    'Black': Colors.black,
+    'White': Colors.white,
+    'Yellow': Colors.yellow,
+    'Orange': Colors.orange,
+    'Purple': Colors.purple,
+    'Pink': Colors.pink,
+    'Brown': Colors.brown,
+    'Grey': Colors.grey,
+    'Gray': Colors.grey,
+    'Navy': const Color(0xFF001F3F),
+    'Beige': const Color(0xFFF5F5DC),
+    'Gold': const Color(0xFFFFD700),
+    'Silver': const Color(0xFFC0C0C0),
+  };
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final s = S.of(context);
+    bool isAr = Localizations.localeOf(context).languageCode == 'ar';
 
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Title
           Text(
-            "Men's Harrington Jacket",
+            isAr ? productModel.arName ?? '' : productModel.enName ?? '',
             style: theme.textTheme.headlineSmall?.copyWith(
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 8),
-          // Price
+          SizedBox(height: 8.h),
+
           Text(
-            '\$148',
-            style: theme.textTheme.titleLarge?.copyWith(
-              color: theme.colorScheme.secondary,
-              fontWeight: FontWeight.bold,
-            ),
+            '\$${productModel.price}',
+            style: AppTextStyles.semiBold20(context),
           ),
-          const SizedBox(height: 24),
-          
-          // Selectors
-          const ProductSelector(title: "Size", value: "S"),
-          const SizedBox(height: 12),
-          ProductSelector(title: s.color, colorValue: Colors.brown.shade300),
+
+          SizedBox(height: 12.h),
+          ProductSelector(
+            title: s.color,
+            colorValue: colors[productModel.color],
+          ),
           const SizedBox(height: 12),
           const QuantitySelector(),
-          
           const SizedBox(height: 24),
-          
+
           // Description
           Text(
-            'Built for life and made to last, this full-zip corduroy jacket is part of our Nike Life collection. The spacious fit gives you plenty of room to layer underneath, while the soft corduroy keeps it casual and timeless.',
+            isAr
+                ? productModel.arDescription ?? ''
+                : productModel.enDescription ?? '',
             style: theme.textTheme.bodyMedium?.copyWith(
               height: 1.5,
               color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
             ),
           ),
           const SizedBox(height: 24),
-          
+
           // Shipping & Returns
           Text(
-            'Shipping & Returns',
+            s.shippingAndReturns,
             style: theme.textTheme.titleMedium?.copyWith(
               fontWeight: FontWeight.bold,
             ),
           ),
           const SizedBox(height: 8),
           Text(
-            'Free standard shipping and free 60-day returns',
+            s.shippingPolicy,
             style: theme.textTheme.bodyMedium?.copyWith(
               color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
             ),
           ),
           const SizedBox(height: 24),
-          
+
           // Reviews
           Text(
             s.reviews,
@@ -81,14 +101,14 @@ class ProductInfoSection extends StatelessWidget {
           Row(
             children: [
               Text(
-                '4.5',
+                productModel.rating?.toString() ?? '0.0',
                 style: theme.textTheme.headlineMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(width: 8),
               Text(
-                'Ratings',
+                s.ratings,
                 style: theme.textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -96,21 +116,22 @@ class ProductInfoSection extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 4),
-          Text(
-            '213 Reviews',
-            style: theme.textTheme.bodyMedium?.copyWith(
-              color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
-            ),
+          Row(
+            spacing: 10.w,
+            children: [
+              Text(
+                productModel.reviewCount?.toString() ?? '0',
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                ),
+              ),
+              Text(S.of(context).reviews),
+            ],
           ),
-          const SizedBox(height: 16),
-          
+
           // Review Items
-          const ReviewItem(name: 'Alex Morgan', date: '12days ago'),
-          const SizedBox(height: 16),
-          const ReviewItem(name: 'Alex Morgan', date: '12days ago'),
         ],
       ),
     );
   }
 }
-

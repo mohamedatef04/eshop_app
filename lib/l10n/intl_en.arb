@@ -111,5 +111,8 @@
     "invalid_name": "Invalid name",
     "categories": "Categories",
     "products": "Products",
-    "see_all": "See All"
+    "see_all": "See All",
+    "shippingAndReturns": "Shipping & Returns",
+    "shippingPolicy": "Free standard shipping and free 60-day returns",
+    "ratings": "Ratings"
 }

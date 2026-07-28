@@ -928,6 +928,31 @@ class S {
   String get see_all {
     return Intl.message('See All', name: 'see_all', desc: '', args: []);
   }
+
+  /// `Shipping & Returns`
+  String get shippingAndReturns {
+    return Intl.message(
+      'Shipping & Returns',
+      name: 'shippingAndReturns',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Free standard shipping and free 60-day returns`
+  String get shippingPolicy {
+    return Intl.message(
+      'Free standard shipping and free 60-day returns',
+      name: 'shippingPolicy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ratings`
+  String get ratings {
+    return Intl.message('Ratings', name: 'ratings', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

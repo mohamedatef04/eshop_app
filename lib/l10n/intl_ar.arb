@@ -111,5 +111,8 @@
     "invalid_name": "الاسم غير صالح",
     "categories": "الفئات",
     "products": "المنتجات",
-    "see_all": "عرض الكل"
+    "see_all": "عرض الكل",
+    "shippingAndReturns": "الشحن والاسترجاع",
+    "shippingPolicy": "شحن عادي مجاني وإرجاع مجاني خلال 60 يومًا",
+    "ratings": "التقييمات"
 }
