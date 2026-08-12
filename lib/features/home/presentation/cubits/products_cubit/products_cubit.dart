@@ -10,12 +10,18 @@ class ProductsCubit extends Cubit<ProductsState> {
   ProductsCubit(this.homeRepo) : super(ProductsInitial());
   final HomeRepo homeRepo;
 
-  Future<void> fetchProducts() async {
+  Future<void> fetchProducts({String? searchItem, String? category}) async {
     safeEmit(ProductsLoading());
-    final result = await homeRepo.getProducts();
+    final result = await homeRepo.getProducts(searchItem, category);
     result.fold(
       (failure) => safeEmit(ProductsFailure(errMessage: failure.errorMessage)),
-      (products) => safeEmit(ProductsSuccess(products: products)),
+      (products) {
+        if (products.isEmpty) {
+          safeEmit(ProductsEmptyState());
+        } else {
+          safeEmit(ProductsSuccess(products: products));
+        }
+      },
     );
   }
 }

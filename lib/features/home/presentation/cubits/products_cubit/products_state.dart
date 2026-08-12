@@ -25,3 +25,5 @@ final class ProductsFailure extends ProductsState {
   @override
   List<Object> get props => [errMessage];
 }
+
+final class ProductsEmptyState extends ProductsState {}

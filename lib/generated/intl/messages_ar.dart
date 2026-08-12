@@ -124,6 +124,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "الرجاء إدخال كلمة مرور جديدة لتأمين حسابك.",
     ),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "no_products_found": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على منتجات",
+    ),
     "off": MessageLookupByLibrary.simpleMessage("خصم"),
     "offers": MessageLookupByLibrary.simpleMessage("العروض"),
     "onboarding_1_description": MessageLookupByLibrary.simpleMessage(
@@ -201,6 +204,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "search_for_items": MessageLookupByLibrary.simpleMessage(
       "ابحث عن منتجات...",
     ),
+    "search_results": MessageLookupByLibrary.simpleMessage("نتائج البحث"),
     "see_all": MessageLookupByLibrary.simpleMessage("عرض الكل"),
     "send_code": MessageLookupByLibrary.simpleMessage("إرسال الرمز"),
     "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),

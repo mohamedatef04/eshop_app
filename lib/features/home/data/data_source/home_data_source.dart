@@ -7,7 +7,10 @@ import 'package:eshop_app/features/home/data/models/product_model.dart';
 abstract class HomeDataSource {
   Future<List<OfferModel>> getOffers();
   Future<List<CategoryModel>> getCategories();
-  Future<List<ProductModel>> getProducts();
+  Future<List<ProductModel>> getProducts({
+    String? searchTerm,
+    String? category,
+  });
 }
 
 class HomeDataSourceImpl extends HomeDataSource {
@@ -43,12 +46,15 @@ class HomeDataSourceImpl extends HomeDataSource {
   }
 
   @override
-  Future<List<ProductModel>> getProducts() async {
+  Future<List<ProductModel>> getProducts({
+    String? searchTerm,
+    String? category,
+  }) async {
     final result = await apiService.getRequest(
       endpoint: Endpoints.getProducts,
       queryParams: {
-        "searchTerm": "",
-        "category": "",
+        "searchTerm": searchTerm ?? "",
+        "category": category ?? "",
         "minPrice": 0,
         "maxPrice": 10000,
         "isInStock": true,

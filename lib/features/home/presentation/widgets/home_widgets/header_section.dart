@@ -1,15 +1,11 @@
-import 'package:eshop_app/core/theme/colors.dart';
 import 'package:flutter/material.dart';
-import '../../../../../../generated/l10n.dart';
 
 class HeaderSection extends StatelessWidget {
   final String title;
-  final VoidCallback? onSeeAll;
 
   const HeaderSection({
     super.key,
     required this.title,
-    this.onSeeAll,
   });
 
   @override
@@ -23,13 +19,6 @@ class HeaderSection extends StatelessWidget {
             title,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
-            ),
-          ),
-          TextButton(
-            onPressed: onSeeAll ?? () {},
-            child: Text(
-              S.of(context).see_all,
-              style: const TextStyle(color: AppColors.secondary),
             ),
           ),
         ],

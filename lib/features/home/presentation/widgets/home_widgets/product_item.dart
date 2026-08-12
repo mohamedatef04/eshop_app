@@ -51,28 +51,10 @@ class ProductItem extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Positioned(
-                    top: 8,
-                    right: 8,
-                    child: Container(
-                      padding: const EdgeInsets.all(4),
-                      decoration: BoxDecoration(
-                        color: Theme.of(
-                          context,
-                        ).colorScheme.surface.withValues(alpha: 0.8),
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        Icons.favorite_border,
-                        size: 20,
-                        color: Colors.red,
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),
-            // Bottom Part: Name, Price, Add to Cart
+
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(

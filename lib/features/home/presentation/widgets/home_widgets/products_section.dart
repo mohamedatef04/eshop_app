@@ -1,3 +1,5 @@
+import 'package:animate_do/animate_do.dart';
+import 'package:eshop_app/core/theme/app_text_styles.dart';
 import 'package:eshop_app/features/home/data/models/product_model.dart';
 import 'package:eshop_app/features/home/presentation/cubits/products_cubit/products_cubit.dart';
 import 'package:eshop_app/features/home/presentation/widgets/home_widgets/product_item.dart';
@@ -17,7 +19,6 @@ class ProductsSection extends StatelessWidget {
       children: [
         HeaderSection(
           title: S.of(context).products,
-          onSeeAll: () {},
         ),
         BlocBuilder<ProductsCubit, ProductsState>(
           builder: (context, state) {
@@ -37,13 +38,21 @@ class ProductsSection extends StatelessWidget {
                 ),
                 itemCount: state.products.length, // Dummy count
                 itemBuilder: (context, index) {
-                  return ProductItem(productModel: state.products[index]);
+                  return FadeInUp(
+                    child: ProductItem(productModel: state.products[index]),
+                  );
                 },
               );
-            }
-            if (state is ProductsFailure) {
+            } else if (state is ProductsFailure) {
               return Center(
                 child: Text(state.errMessage),
+              );
+            } else if (state is ProductsEmptyState) {
+              return Center(
+                child: Text(
+                  S.of(context).no_products_found,
+                  style: AppTextStyles.bold18(context),
+                ),
               );
             } else {
               return GridView.builder(

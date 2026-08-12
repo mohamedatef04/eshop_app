@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:eshop_app/features/home/data/models/offer_model.dart';
 import 'package:eshop_app/features/home/presentation/cubits/offres_cubit/offers_cubit.dart';
 import 'package:eshop_app/features/home/presentation/widgets/home_widgets/offer_item.dart';
@@ -21,8 +22,10 @@ class OffersSection extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               itemCount: state.offers.length, // Dummy count
               itemBuilder: (context, index) {
-                return OfferItem(
-                  offerModel: state.offers[index],
+                return FadeInDown(
+                  child: OfferItem(
+                    offerModel: state.offers[index],
+                  ),
                 );
               },
             ),

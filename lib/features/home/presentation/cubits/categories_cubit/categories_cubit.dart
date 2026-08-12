@@ -16,8 +16,7 @@ class CategoriesCubit extends Cubit<CategoriesState> {
     result.fold(
       (failure) =>
           safeEmit(CategoriesFailure(errMessage: failure.errorMessage)),
-      (categories) =>
-          safeEmit(CategoriesSuccess(categories: categories.take(5).toList())),
+      (categories) => safeEmit(CategoriesSuccess(categories: categories)),
     );
   }
 }

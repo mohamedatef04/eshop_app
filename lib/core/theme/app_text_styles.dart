@@ -55,7 +55,7 @@ abstract class AppTextStyles {
   );
   static TextStyle bold18(BuildContext context) => TextStyle(
     fontSize: _getFontSize(context, 18),
-    color: Colors.white,
+    color: Theme.of(context).colorScheme.onSurface,
     fontFamily: _fontFamily(context),
     fontWeight: FontWeight.bold,
   );

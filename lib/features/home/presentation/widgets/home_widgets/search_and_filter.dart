@@ -1,8 +1,23 @@
+import 'package:eshop_app/features/auth/presentation/widgets/custom_text_field.dart';
+import 'package:eshop_app/features/home/presentation/cubits/products_cubit/products_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../generated/l10n.dart';
 
-class SearchAndFilter extends StatelessWidget {
+class SearchAndFilter extends StatefulWidget {
   const SearchAndFilter({super.key});
+
+  @override
+  State<SearchAndFilter> createState() => _SearchAndFilterState();
+}
+
+class _SearchAndFilterState extends State<SearchAndFilter> {
+  TextEditingController searchController = TextEditingController();
+  @override
+  void dispose() {
+    searchController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,12 +26,16 @@ class SearchAndFilter extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: S.of(context).search_for_items,
-                prefixIcon: const Icon(Icons.search),
-                contentPadding: const EdgeInsets.symmetric(vertical: 0),
-              ),
+            child: CustomTextField(
+              controller: searchController,
+              hint: S.of(context).search_for_items,
+              prefixIcon: const Icon(Icons.search),
+
+              onChanged: (value) {
+                context.read<ProductsCubit>().fetchProducts(
+                  searchItem: value,
+                );
+              },
             ),
           ),
           const SizedBox(width: 12),

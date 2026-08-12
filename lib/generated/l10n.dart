@@ -953,6 +953,26 @@ class S {
   String get ratings {
     return Intl.message('Ratings', name: 'ratings', desc: '', args: []);
   }
+
+  /// `No products found`
+  String get no_products_found {
+    return Intl.message(
+      'No products found',
+      name: 'no_products_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search Results`
+  String get search_results {
+    return Intl.message(
+      'Search Results',
+      name: 'search_results',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

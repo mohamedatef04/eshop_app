@@ -36,9 +36,15 @@ class HomeRepo {
     }
   }
 
-  Future<Either<Failures, List<ProductModel>>> getProducts() async {
+  Future<Either<Failures, List<ProductModel>>> getProducts(
+    String? searchItem,
+    String? category,
+  ) async {
     try {
-      final result = await homeDataSource.getProducts();
+      final result = await homeDataSource.getProducts(
+        searchTerm: searchItem,
+        category: category,
+      );
       return right(result);
     } on Exception catch (e) {
       if (e is DioException) {

@@ -122,6 +122,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Please enter a new password to secure your account.",
     ),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "no_products_found": MessageLookupByLibrary.simpleMessage(
+      "No products found",
+    ),
     "off": MessageLookupByLibrary.simpleMessage("OFF"),
     "offers": MessageLookupByLibrary.simpleMessage("Offers"),
     "onboarding_1_description": MessageLookupByLibrary.simpleMessage(
@@ -205,6 +208,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "search_for_items": MessageLookupByLibrary.simpleMessage(
       "Search for items...",
     ),
+    "search_results": MessageLookupByLibrary.simpleMessage("Search Results"),
     "see_all": MessageLookupByLibrary.simpleMessage("See All"),
     "send_code": MessageLookupByLibrary.simpleMessage("Send Code"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
