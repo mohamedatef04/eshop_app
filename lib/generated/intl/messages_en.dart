@@ -125,6 +125,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_products_found": MessageLookupByLibrary.simpleMessage(
       "No products found",
     ),
+    "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
     "off": MessageLookupByLibrary.simpleMessage("OFF"),
     "offers": MessageLookupByLibrary.simpleMessage("Offers"),
     "onboarding_1_description": MessageLookupByLibrary.simpleMessage(

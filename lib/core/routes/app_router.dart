@@ -19,6 +19,7 @@ import 'package:eshop_app/features/auth/presentation/screens/verify_email_after_
 import 'package:eshop_app/features/home/data/models/product_model.dart';
 import 'package:eshop_app/features/home/presentation/screens/home_screen.dart';
 import 'package:eshop_app/features/home/presentation/screens/product_details_screen.dart';
+import 'package:eshop_app/features/main/cubit/nav_bar_cubit.dart';
 import 'package:eshop_app/features/main/root_screen.dart';
 import 'package:eshop_app/features/on_boarding/screens/onboarding_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -133,7 +134,10 @@ final GoRouter router = GoRouter(
         ),
         GoRoute(
           path: RootScreen.route,
-          builder: (context, state) => const RootScreen(),
+          builder: (context, state) => BlocProvider(
+            create: (context) => NavBarCubit(),
+            child: const RootScreen(),
+          ),
         ),
         GoRoute(
           path: HomeScreen.route,

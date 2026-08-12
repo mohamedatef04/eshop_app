@@ -1,7 +1,9 @@
 import 'package:eshop_app/core/theme/colors.dart';
+import 'package:eshop_app/features/main/cubit/nav_bar_cubit.dart';
 import 'package:eshop_app/generated/l10n.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -11,6 +13,7 @@ class CustomBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final currentIndex = context.watch<NavBarCubit>().currentIndex;
 
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
@@ -32,6 +35,7 @@ class CustomBottomNavBar extends StatelessWidget {
         ],
       ),
       child: GNav(
+        selectedIndex: currentIndex,
         backgroundColor: Colors.transparent,
         tabMargin: EdgeInsets.symmetric(
           vertical: 5.h,
@@ -53,19 +57,22 @@ class CustomBottomNavBar extends StatelessWidget {
           horizontal: 10.w,
           vertical: 10.h,
         ), // Reduced horizontal padding
-        onTabChange: (value) {},
+        onTabChange: (value) {
+          context.read<NavBarCubit>().changeNavBar(value);
+        },
         tabs: [
           GButton(
             icon: CupertinoIcons.home,
             text: S.of(context).home,
           ),
-          GButton(
-            icon: CupertinoIcons.compass,
-            text: S.of(context).discover,
-          ),
+
           GButton(
             icon: CupertinoIcons.cart,
             text: S.of(context).cart,
+          ),
+          GButton(
+            icon: CupertinoIcons.bell,
+            text: S.of(context).notifications,
           ),
           GButton(
             icon: CupertinoIcons.person,

@@ -127,6 +127,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_products_found": MessageLookupByLibrary.simpleMessage(
       "لم يتم العثور على منتجات",
     ),
+    "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
     "off": MessageLookupByLibrary.simpleMessage("خصم"),
     "offers": MessageLookupByLibrary.simpleMessage("العروض"),
     "onboarding_1_description": MessageLookupByLibrary.simpleMessage(
