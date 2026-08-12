@@ -108,5 +108,13 @@
     "english": "English",
     "appearance": "المظهر",
     "settings": "الإعدادات",
-    "invalid_name": "الاسم غير صالح"
+    "invalid_name": "الاسم غير صالح",
+    "categories": "الفئات",
+    "products": "المنتجات",
+    "see_all": "عرض الكل",
+    "shippingAndReturns": "الشحن والاسترجاع",
+    "shippingPolicy": "شحن عادي مجاني وإرجاع مجاني خلال 60 يومًا",
+    "ratings": "التقييمات",
+    "no_products_found": "لم يتم العثور على منتجات",
+    "search_results": "نتائج البحث"
 }

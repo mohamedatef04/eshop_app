@@ -913,6 +913,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Categories`
+  String get categories {
+    return Intl.message('Categories', name: 'categories', desc: '', args: []);
+  }
+
+  /// `Products`
+  String get products {
+    return Intl.message('Products', name: 'products', desc: '', args: []);
+  }
+
+  /// `See All`
+  String get see_all {
+    return Intl.message('See All', name: 'see_all', desc: '', args: []);
+  }
+
+  /// `Shipping & Returns`
+  String get shippingAndReturns {
+    return Intl.message(
+      'Shipping & Returns',
+      name: 'shippingAndReturns',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Free standard shipping and free 60-day returns`
+  String get shippingPolicy {
+    return Intl.message(
+      'Free standard shipping and free 60-day returns',
+      name: 'shippingPolicy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ratings`
+  String get ratings {
+    return Intl.message('Ratings', name: 'ratings', desc: '', args: []);
+  }
+
+  /// `No products found`
+  String get no_products_found {
+    return Intl.message(
+      'No products found',
+      name: 'no_products_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search Results`
+  String get search_results {
+    return Intl.message(
+      'Search Results',
+      name: 'search_results',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

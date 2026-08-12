@@ -1,3 +1,4 @@
+import 'package:eshop_app/core/theme/colors.dart';
 import 'package:eshop_app/core/theme/responsive_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -54,14 +55,14 @@ abstract class AppTextStyles {
   );
   static TextStyle bold18(BuildContext context) => TextStyle(
     fontSize: _getFontSize(context, 18),
-    color: Colors.white,
+    color: Theme.of(context).colorScheme.onSurface,
     fontFamily: _fontFamily(context),
     fontWeight: FontWeight.bold,
   );
 
   static TextStyle bold16(BuildContext context) => TextStyle(
     fontSize: _getFontSize(context, 16),
-    color: Theme.of(context).colorScheme.onSurface,
+    color: AppColors.black,
     fontFamily: _fontFamily(context),
     fontWeight: FontWeight.bold,
   );
@@ -198,7 +199,7 @@ abstract class AppTextStyles {
 
   static TextStyle medium14(BuildContext context) => TextStyle(
     fontSize: _getFontSize(context, 14),
-    color: Theme.of(context).colorScheme.onSurface,
+    color: Theme.of(context).colorScheme.onSecondary,
     fontFamily: _fontFamily(context),
     fontWeight: FontWeight.w500,
   );

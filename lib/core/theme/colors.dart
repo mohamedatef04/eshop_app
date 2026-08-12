@@ -21,7 +21,7 @@ class AppColors {
 
   // Background Colors
   static const Color background = Color(0xFFFEFAE0);
-  static const Color backgroundDark = Color.fromARGB(255, 0, 0, 11);
+  static const Color backgroundDark = Color(0xff1D182A);
   static const Color surface = Color(0xFFFFFFFF);
   static const Color surfaceDark = Color(0xFF16213E);
 
@@ -40,6 +40,12 @@ class AppColors {
   // Border & Divider Colors
   static const Color border = Color(0xFFDFE6E9);
   static const Color divider = Color(0xFFECF0F1);
+
+  // Card & Container Colors
+  static const Color black = Color(0xFF000000);
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color blue = Color(0xFF0047AB);
+  static const Color grey = Color.fromARGB(255, 41, 46, 59);
 
   // Gradients
   static const LinearGradient primaryGradient = LinearGradient(

@@ -108,5 +108,13 @@
     "english": "English",
     "appearance": "Appearance",
     "settings": "Settings",
-    "invalid_name": "Invalid name"
+    "invalid_name": "Invalid name",
+    "categories": "Categories",
+    "products": "Products",
+    "see_all": "See All",
+    "shippingAndReturns": "Shipping & Returns",
+    "shippingPolicy": "Free standard shipping and free 60-day returns",
+    "ratings": "Ratings",
+    "no_products_found": "No products found",
+    "search_results": "Search Results"
 }

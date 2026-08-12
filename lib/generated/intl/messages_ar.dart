@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "العودة لتسجيل الدخول",
     ),
     "cart": MessageLookupByLibrary.simpleMessage("السلة"),
+    "categories": MessageLookupByLibrary.simpleMessage("الفئات"),
     "category": MessageLookupByLibrary.simpleMessage("الفئة"),
     "color": MessageLookupByLibrary.simpleMessage("اللون"),
     "confirm_password": MessageLookupByLibrary.simpleMessage(
@@ -123,6 +124,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "الرجاء إدخال كلمة مرور جديدة لتأمين حسابك.",
     ),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "no_products_found": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على منتجات",
+    ),
     "off": MessageLookupByLibrary.simpleMessage("خصم"),
     "offers": MessageLookupByLibrary.simpleMessage("العروض"),
     "onboarding_1_description": MessageLookupByLibrary.simpleMessage(
@@ -187,8 +191,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "price": MessageLookupByLibrary.simpleMessage("السعر"),
     "product_code": MessageLookupByLibrary.simpleMessage("رمز المنتج"),
     "product_details": MessageLookupByLibrary.simpleMessage("تفاصيل المنتج"),
+    "products": MessageLookupByLibrary.simpleMessage("المنتجات"),
     "profile": MessageLookupByLibrary.simpleMessage("حسابي"),
     "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
+    "ratings": MessageLookupByLibrary.simpleMessage("التقييمات"),
     "register": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "resend": MessageLookupByLibrary.simpleMessage("إعادة إرسال"),
     "reset_password": MessageLookupByLibrary.simpleMessage(
@@ -198,9 +204,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "search_for_items": MessageLookupByLibrary.simpleMessage(
       "ابحث عن منتجات...",
     ),
+    "search_results": MessageLookupByLibrary.simpleMessage("نتائج البحث"),
+    "see_all": MessageLookupByLibrary.simpleMessage("عرض الكل"),
     "send_code": MessageLookupByLibrary.simpleMessage("إرسال الرمز"),
     "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "share": MessageLookupByLibrary.simpleMessage("مشاركة"),
+    "shippingAndReturns": MessageLookupByLibrary.simpleMessage(
+      "الشحن والاسترجاع",
+    ),
+    "shippingPolicy": MessageLookupByLibrary.simpleMessage(
+      "شحن عادي مجاني وإرجاع مجاني خلال 60 يومًا",
+    ),
     "special_offer": MessageLookupByLibrary.simpleMessage("تخفيضات الصيف!"),
     "special_offer_desc": MessageLookupByLibrary.simpleMessage(
       "احصل على خصم يصل إلى 50%\nعلى جميع العناصر.",
